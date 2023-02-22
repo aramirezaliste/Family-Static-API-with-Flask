@@ -57,11 +57,9 @@ def get_member(member_id):
 
 @app.route('/member/<int:member_id>', methods=['DELETE'])
 def delete_member(member_id):
-    member = jackson_family.delete_member(member_id)
-    #member_dict = dict(member[0])
-    #print(type(member_dict))
+    response = jackson_family.delete_member(member_id)
 
-    return jsonify(member), 200
+    return jsonify(response), 200
 
 # this only runs if `$ python src/app.py` is execute
 if __name__ == '__main__':

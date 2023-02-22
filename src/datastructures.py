@@ -53,16 +53,14 @@ class FamilyStructure:
             "lucky_numbers": member["lucky_numbers"]
         })
 
-    def delete_member(self, id):
+    def delete_member(self, idd):
         # fill this method and update the return
         for i in self._members:
-            if i["id"] == id:
-                cual_es = i
-                self._members.pop(id)
-                #self._members.pop(cual_es)
-                #index = self._members.index(self._members[i])
-                #self._members.pop(index)
-        return cual_es
+            if i["id"] == idd:
+                cual_es_index = self._members.index(i)
+                self._members.pop(cual_es_index)
+                
+        return {"done" : True}
 
     def get_member(self, id):
         # fill this method and update the return

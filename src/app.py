@@ -42,6 +42,7 @@ def handle_hello():
 def post_member():
     response_body = request.get_json()
     # this is how you can use the Family datastructure by calling its methods
+    print(response_body)
     member = jackson_family.add_member(response_body)
     
     return jsonify(response_body), 200
@@ -62,7 +63,7 @@ def delete_member(member_id):
 
     return jsonify(member), 200
 
-# this only runs if `$ python src/app.py` is executed
+# this only runs if `$ python src/app.py` is execute
 if __name__ == '__main__':
     PORT = int(os.environ.get('PORT', 3000))
     app.run(host='0.0.0.0', port=PORT, debug=True)

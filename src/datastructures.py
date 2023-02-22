@@ -10,11 +10,9 @@ from random import randint
 
 
 class FamilyStructure:
-    def __init__(self, last_name, first_name=str(),age=int(),lucky_numbers=list()):
+    def __init__(self, last_name):
         self.last_name = last_name
-        self.first_name = first_name
-        self.age = age
-        self.lucky_numbers = lucky_numbers
+        
         # example list of members
         self._members = [
         {
@@ -42,11 +40,17 @@ class FamilyStructure:
 
     def add_member(self, member):
         # fill this method and update the return
+        _id = ""
+        if member["id"] == 0:
+            _id = self._generateId()
+        else:
+            _id = member["id"]
+
         self._members.append({
-            "id": self._generateId(),
-            "first_name": self.first_name,
-            "age": self.age,
-            "lucky_numbers": self.lucky_numbers
+            "id" : _id,
+            "first_name": member["first_name"],
+            "age": member["age"],
+            "lucky_numbers": member["lucky_numbers"]
         })
 
     def delete_member(self, id):
